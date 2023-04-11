@@ -1,0 +1,12 @@
+.first-section {
+    height: 400px;
+    background-image: url(../img/bg-hero-home.jpg);
+    background-size: cover;
+    background-position: center;
+
+    img {
+        padding-left: 150px;
+        position: absolute;
+        bottom: 218px;
+    }
+}

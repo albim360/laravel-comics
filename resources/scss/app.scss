@@ -1,1 +1,160 @@
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+@import "variables";
+@import "generals";
+@import "mixins";
+
+body {
+    max-height: 100vh;
+}
+
+.content {
+    @include margin_app();
+}
+
+/* img {
+    max-height: 150px;
+} */
+
+/* NAVBAR */
+.top-navbar {
+    background-color: $primary_color;
+    div {
+        color: $light_color;
+    }
+}
+
+.navbar {
+    background-color: $light_color;
+    padding: 0;
+
+    .container {
+        height: 100%;
+    }
+
+    .navbar-nav {
+        gap: 1rem;
+    }
+
+    .nav-link:hover {
+        color: $primary_color;
+    }
+
+    ul {
+        font-weight: bold;
+        li {
+            height: 100%;
+            @include nav_hover;
+        }
+    }
+
+    form {
+        border-bottom: solid $primary_color;
+        input {
+            border: none;
+        }
+    }
+}
+
+/* JUMBOTRON */
+.jumbotron {
+    height: auto;
+    img {
+        object-fit: cover;
+        object-position: top;
+        width: 100%;
+        max-height: 23rem;
+    }
+}
+
+/* CONTENT */
+.comic-list {
+    background-color: $dark_color;
+    padding-bottom: 1rem;
+}
+section {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+span {
+    position: absolute;
+    bottom: 1rem;
+    left: 10rem;
+}
+
+.label,
+button {
+    @include label();
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+        width: calc((100% / 6));
+
+        a {
+            color: $light_color;
+            flex-direction: column;
+            display: flex;
+            width: 100%;
+            gap: 1rem;
+            padding: 1rem;
+            .cover {
+                img {
+                    object-fit: cover;
+                    object-position: top;
+                    width: 100%;
+                    aspect-ratio: 1;
+                }
+            }
+            .series {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #303030;
+}
+
+.footer-top {
+    @include footer_style();
+    @include flex-center();
+    justify-content: space-between;
+
+    background-image: url(../img/footer-bg.jpg);
+    .footer-content-left {
+        display: flex;
+        ul {
+            flex-direction: column;
+            li {
+                width: auto;
+            }
+        }
+    }
+    .footer-content-right {
+        background-image: url(../img/dc-logo-bg.png);
+        background-repeat: no-repeat;
+        background-position: right;
+
+        min-width: 40rem;
+        min-height: 20rem;
+    }
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.icons {
+    @include align_list();
+}
+button {
+    @include button_hover();
+}

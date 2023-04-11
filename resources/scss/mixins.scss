@@ -1,0 +1,88 @@
+@import "variables";
+
+/* ALIGNMENT */
+@mixin align_list() {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    ul {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 2rem;
+        li {
+            a {
+                padding: 0;
+            }
+        }
+    }
+}
+@mixin align_div() {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@mixin margin_app() {
+    padding: 0 5rem;
+}
+
+@mixin footer_style() {
+    .title {
+        color: $light_color;
+        font-weight: bold;
+    }
+    ul {
+        color: gray;
+        font-size: smaller;
+        line-height: 150%;
+    }
+}
+@mixin shop_section() {
+    background-color: $primary_color;
+    padding: 2rem 0;
+    justify-content: center;
+
+    a {
+        color: $light_color;
+    }
+}
+@mixin label() {
+    background-color: $primary_color;
+    padding: 1rem 2rem;
+
+    color: $light_color;
+    border: none;
+}
+
+@mixin button_hover {
+    background-color: transparent;
+    border: solid thin gray;
+    color: $light_color;
+    padding: 1rem;
+    &:hover {
+        border: solid $primary_color;
+    }
+}
+@mixin nav_hover {
+    &:hover {
+        border-bottom: 5px solid $primary_color;
+    }
+}
+
+//con questa dicitura se non specifico nulla il flex-center del mixin allinea gli elementi sull'asse x e y di default
+@mixin flex-center($axis: "central") {
+    display: flex;
+
+    //se specifico che il flex-center del mixin è "horizontal" allineo gli elementi sull'asse x
+    @if $axis == "horizontal" {
+        justify-content: center;
+    } @else if $axis == "central" {
+        justify-content: center;
+        align-items: center;
+        //se specifico che il flex-center del mixin è "vertical" allineo gli elementi sull'asse y
+    } @else if $axis == "vertical" {
+        align-items: center;
+    }
+}
